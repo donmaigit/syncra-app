@@ -1,0 +1,28 @@
+import "@/app/globals.css";
+import { Inter } from "next/font/google";
+import { NextIntlClientProvider } from 'next-intl';
+import jaMessages from '@/messages/ja.json'; // Load Japanese messages
+
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata = {
+  title: "SYNCRA Funnel",
+  description: "Powered by SYNCRA",
+};
+
+export default function FunnelLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="ja">
+      <body className={inter.className}>
+        {/* FIX: Provide translations to public pages so CheckoutWidget doesn't crash */}
+        <NextIntlClientProvider locale="ja" messages={jaMessages}>
+          {children}
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
+}
