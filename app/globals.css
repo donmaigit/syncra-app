@@ -1,0 +1,5 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body { background: #0F172A; color: white; } FIX: Removed hardcoded body background to prevent theme conflict/flashing */
